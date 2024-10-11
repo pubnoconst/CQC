@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("CQC")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Release")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60c0edcec55f27a8819169377660f52d68c04b82")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a59298935d1e194062c4c8946940bf48fee6bf3")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("CQC")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("CQC")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

@@ -47,7 +47,7 @@ let printResult prices =
     |> ignore
 
     AnsiConsole.Write(table)
-    printfn "Mininum deposit: %.2f" <| sum / 2M
+    printfn "Minimum deposit: %.2f" <| sum / 2M
 
 
 [<EntryPoint>]
