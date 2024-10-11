@@ -1,0 +1,2 @@
+C:\Users\u1\proj\CQC\bin\Release\net8.0\win-x64\publish\CQC.pdb
+C:\Users\u1\proj\CQC\bin\Release\net8.0\win-x64\publish\CQC.exe
