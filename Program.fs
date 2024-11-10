@@ -2,7 +2,7 @@
 open StringMath
 
 let greet () =
-    printfn "Welcome to Quote calculator. Simply list the parts cost in each line."
+    printfn "Welcome to Quote Calculator. Simply list the parts cost in each line."
     printfn "Pressing Enter twice or entering a non-numerical line will prompt me to compute the quote."
 
 let getPrices () =

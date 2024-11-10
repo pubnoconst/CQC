@@ -24,8 +24,8 @@ This is a fast and minimal command-line tool written in F# to calculate a repair
 ### Example
 
 ```
-Welcome to Quote calculator. Simply list the parts cost in each line.
-Pressing Enter twice will or entering a non-numerical line prompt me to compute the quote.
+Welcome to Quote Calculator. Simply list the parts cost in each line.
+Pressing Enter twice or entering a non-numerical line will prompt me to compute the quote.
 Part 1 cost: 42.1
 Part 2 cost: 10.4 + 0.15
 Part 3 cost: 
