@@ -21,43 +21,42 @@ fn read_expr(idx: u8) -> Option<f64> {
     }
 }
 
-fn calculate_total_cost(part_costs: &Vec<f64>) -> Vec<f64> {
-    part_costs
-        .iter()
-        .copied()
-        .map(|c| {
-            if c < 200. {
-                c + 140.
-            } else if c <= 350. {
-                c + 180.
-            } else {
-                c + 250.
-            }
-        })
-        .collect()
+fn calculate_quote(part_cost: f64) -> f64 {
+    if part_cost < 200. {
+        part_cost + 140.
+    } else if part_cost <= 350. {
+        part_cost + 180.
+    } else {
+        part_cost + 250.
+    }
 }
 
 fn draw_saperator() {
     println!("\x1b[33m{}\x1b[0m", "=".repeat(120));
 }
 
-fn draw_output(costs: &Vec<f64>, quotes: &Vec<f64>) {
+fn draw_output(costs: &[f64]) {
+    let mut total_quote = 0.;
     let mut table = Table::new();
     table
         .apply_modifier(UTF8_ROUND_CORNERS)
         .set_content_arrangement(ContentArrangement::Dynamic);
     table.set_header(vec!["#", "Part cost", "Quote"]);
-    for i in 0..costs.len() {
+
+    for (i, cost) in costs.iter().copied().enumerate() {
+        let quote = calculate_quote(cost);
+        total_quote += quote;
         table.add_row(vec![
             format!("{}", i + 1),
-            format!("{:.02}", costs[i]),
-            format!("{:.02}", quotes[i]),
+            format!("{:.02}", cost),
+            format!("{:.02}", quote),
         ]);
     }
+
     table.add_row(vec![
         comfy_table::Cell::new("Total".to_string()),
         comfy_table::Cell::new(""),
-        comfy_table::Cell::new(format!("{:.02}", quotes.iter().copied().sum::<f64>()))
+        comfy_table::Cell::new(format!("{:.02}", total_quote))
             .fg(comfy_table::Color::Black)
             .bg(comfy_table::Color::Green)
             .add_attribute(comfy_table::Attribute::Bold),
@@ -65,10 +64,7 @@ fn draw_output(costs: &Vec<f64>, quotes: &Vec<f64>) {
 
     println!("{table}");
 
-    println!(
-        "Minimum deposit: ${:.02}",
-        quotes.iter().copied().sum::<f64>() * 0.5
-    );
+    println!("Minimum deposit: ${:.02}", total_quote / 2.);
 
     draw_saperator();
 }
@@ -78,15 +74,10 @@ fn main() {
         greet();
         let mut part_costs = Vec::<f64>::new();
         let mut i = 1;
-        loop {
-            if let Some(cost) = read_expr(i) {
-                part_costs.push(cost);
-                i += 1;
-            } else {
-                break;
-            }
+        while let Some(cost) = read_expr(i) {
+            part_costs.push(cost);
+            i += 1;
         }
-        let quotes = calculate_total_cost(&part_costs);
-        draw_output(&part_costs, &quotes);
+        draw_output(&part_costs);
     }
 }
