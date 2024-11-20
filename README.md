@@ -11,10 +11,6 @@ This is a fast and minimal command-line tool written in F# to calculate a repair
 
 **Note:** This is an in-house tool and is not affiliated with Casphone company, or the author. It is provided "as is" without warranty of any kind.
 
-### Requirements
-
-* .NET runtime 6.0 or later
-
 ### Usage
 
 1. Run the application from the command line.
@@ -24,20 +20,25 @@ This is a fast and minimal command-line tool written in F# to calculate a repair
 ### Example
 
 ```
-Welcome to Quote Calculator. Simply list the parts cost in each line.
-Pressing Enter twice or entering a non-numerical line will prompt me to compute the quote.
-Part 1 cost: 42.1
-Part 2 cost: 10.4 + 0.15
-Part 3 cost: 
-END
-
- #     │ Part cost │ Quote
-═══════╪═══════════╪════════
- 1     │ 42.10     │ 182.10
- 2     │ 10.55     │ 150.55
- Total │           │ 332.65
-
-Minimum deposit: 166.33
+Welcome to quote calculator.
+Simply enter the cost of the parts in each lines.
+Entering a non-neumerical value or pressing Enter twice will prompt me to calculate the total cost.
+Part    1: $17.36
+Part    2: $7.87
+Part    3: $15.11 + 34.98
+Part    4: $
+╭-------+-----------+--------╮
+| #     | Part cost | Quote  |
++============================+
+| 1     | 17.36     | 157.36 |
+|-------+-----------+--------|
+| 2     | 7.87      | 147.87 |
+|-------+-----------+--------|
+| 3     | 50.09     | 190.09 |
+|-------+-----------+--------|
+| Total |           | 495.32 |
+╰-------+-----------+--------╯
+Minimum deposit: $247.66
 ```
 
 ### License
