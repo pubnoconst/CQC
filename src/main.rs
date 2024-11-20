@@ -4,8 +4,8 @@ use std::io::Write;
 
 fn greet() {
     println!("Welcome to quote calculator.");
-    println!("Simply enter the cost of the parts on each lines");
-    println!("Entering a non-neumerical value or pressing Enter twice will prompt me to calculate the total cost");
+    println!("Simply enter the cost of the parts in each lines.");
+    println!("Entering a non-neumerical value or pressing Enter twice will prompt me to calculate the total cost.");
 }
 
 fn read_expr(idx: u8) -> Option<f64> {
@@ -66,7 +66,7 @@ fn draw_output(costs: &Vec<f64>, quotes: &Vec<f64>) {
     println!("{table}");
 
     println!(
-        "Minimum deposit: {:.02}",
+        "Minimum deposit: ${:.02}",
         quotes.iter().copied().sum::<f64>() * 0.5
     );
 
