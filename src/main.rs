@@ -22,12 +22,29 @@ fn read_expr(idx: u8) -> Option<f64> {
 }
 
 fn calculate_quote(part_cost: f64) -> f64 {
-    if part_cost < 200. {
-        part_cost + 140.
-    } else if part_cost <= 350. {
-        part_cost + 180.
-    } else {
-        part_cost + 250.
+    let over_200 = (part_cost >= 200.) as i32 as f64;
+    let over_350 = (part_cost > 350.) as i32 as f64;
+
+    part_cost + 140.0 + 40.0 * over_200 + 70.0 * over_350
+}
+
+#[cfg(test)]
+mod tests {
+    fn calculate_quote(part_cost: f64) -> f64 {
+        if part_cost < 200. {
+            part_cost + 140.
+        } else if part_cost <= 350. {
+            part_cost + 180. 
+        } else {
+            part_cost + 250. 
+        }
+    }
+    
+    #[test]
+    fn tset() {
+        for i in 0 .. 1000 {
+            assert_eq!(self::calculate_quote(i as f64), super::calculate_quote(i as f64));
+        }
     }
 }
 
